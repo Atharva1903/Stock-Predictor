@@ -19,5 +19,5 @@ services:
     staticPublishPath: ./dist
     envVars:
       - key: VITE_API_URL
-        value: https://stock-predictor-backend.onrender.com
+        value: https://stock-predictor-zqrh.onrender.com
     autoDeploy: true 
