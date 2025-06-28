@@ -9,6 +9,9 @@ import { toast } from "sonner";
 import Plot from 'react-plotly.js';
 import { Progress } from "@/components/ui/progress";
 
+// Get API URL from environment variable
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 interface PredictionResult {
   success: boolean;
   plot?: string;
@@ -132,7 +135,7 @@ const StockPredictor = () => {
     }, 400);
 
     try {
-      const response = await fetch("http://localhost:5000/train", {
+      const response = await fetch(`${API_URL}/train`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -168,11 +171,11 @@ const StockPredictor = () => {
   };
 
   const handleDownloadCSV = () => {
-    window.open("http://localhost:5000/download_csv", "_blank");
+    window.open(`${API_URL}/download_csv`, "_blank");
   };
 
   const handleDownloadPlot = () => {
-    window.open("http://localhost:5000/download_plot", "_blank");
+    window.open(`${API_URL}/download_plot`, "_blank");
   };
 
   // Parse Plotly chart data (now handles direct objects from Flask)

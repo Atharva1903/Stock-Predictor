@@ -1,0 +1,30 @@
+name: Wake Up Render Services
+
+on:
+  schedule:
+    # Run every 10 minutes
+    - cron: '*/10 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  wake-up:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Wake up Backend
+      run: |
+        echo "🔄 Waking up backend service..."
+        curl -s "https://stock-predictor-backend.onrender.com" > /dev/null
+        echo "✅ Backend pinged at $(date)"
+    
+    - name: Wake up Frontend
+      run: |
+        echo "🔄 Waking up frontend service..."
+        curl -s "https://stock-predictor-frontend.onrender.com" > /dev/null
+        echo "✅ Frontend pinged at $(date)"
+    
+    - name: Log Status
+      run: |
+        echo "🚀 All services pinged successfully!"
+        echo "⏰ Time: $(date)"
+        echo "📡 Next wake-up in 10 minutes" 

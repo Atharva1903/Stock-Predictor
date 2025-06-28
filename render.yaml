@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: stock-predictor-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: FLASK_ENV
+        value: production
+    healthCheckPath: /
+    autoDeploy: true
+
+  - type: web
+    name: stock-predictor-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://stock-predictor-backend.onrender.com
+    autoDeploy: true 
