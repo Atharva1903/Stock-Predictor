@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Predictor - Backend</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .status {
+            background: rgba(76, 175, 80, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid rgba(76, 175, 80, 0.5);
+        }
+        .api-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        .endpoint {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Stock Price Predictor</h1>
+        <p>AI-powered LSTM neural network for stock price forecasting</p>
+        
+        <div class="status">
+            <h2>✅ Backend Status: Running</h2>
+            <p>The Flask API server is operational and ready to process requests.</p>
+        </div>
+
+        <div class="api-info">
+            <h3>📡 Available API Endpoints:</h3>
+            <div class="endpoint">
+                <strong>POST /train</strong> - Train LSTM model and get predictions
+            </div>
+            <div class="endpoint">
+                <strong>GET /download_csv</strong> - Download predictions as CSV
+            </div>
+            <div class="endpoint">
+                <strong>GET /download_plot</strong> - Download chart as PNG
+            </div>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <p><strong>Frontend:</strong> <a href="http://localhost:8080" style="color: #ffd700;">http://localhost:8080</a></p>
+            <p><strong>Backend API:</strong> <a href="http://localhost:5000" style="color: #ffd700;">http://localhost:5000</a></p>
+        </div>
+    </div>
+</body>
+</html> 
