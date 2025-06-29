@@ -10,6 +10,7 @@ import numpy as np
 from stock_predictor import StockPredictor
 import plotly.graph_objects as go
 import plotly.utils
+import yfinance as yf
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -108,6 +109,14 @@ def download_plot():
         )
     except Exception as e:
         return jsonify({'error': str(e)}), 400
+
+@app.route('/test_yf')
+def test_yf():
+    try:
+        info = yf.Ticker("MSFT").info
+        return str(info)
+    except Exception as e:
+        return str(e), 500
 
 def create_interactive_plot(data, predictions, ticker):
     fig = go.Figure()
